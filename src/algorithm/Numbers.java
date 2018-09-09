@@ -47,6 +47,9 @@ public class Numbers {
 		long InsertionSortExecutionTime = algo.executionTime;
 		System.out.println();
 
+		algo.mergeSort(num);
+
+
 
 		//Come to conclusion about which Sorting Algo is better in given data set.
 

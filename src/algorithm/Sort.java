@@ -87,7 +87,7 @@ public class Sort {
             int [] right = new int[list.length-mid];
 
             for(int i = 0; i<mid; i++){
-                left[i]= list[i]
+                left[i]= list[i];
             };
 
             for(int i = mid+1; i<list.length; i++){
@@ -97,7 +97,15 @@ public class Sort {
             mergeSort(left);
             mergeSort(right);
 
-            for(int i = 0; i<)
+            for(int i = 0; i<left.length; i++){
+                for(int j = 0; j<right.length; j++){
+                    while(left[i]>right[j]){
+                        int temp = left[i];
+                        left[i] = right[j];
+                        right[j] = temp;
+                    }
+                }
+            }
 
         }
 
@@ -108,7 +116,6 @@ public class Sort {
     public int [] quickSort(int [] array){
         int [] list = array;
         //implement here
-        
         
 
         return list;
