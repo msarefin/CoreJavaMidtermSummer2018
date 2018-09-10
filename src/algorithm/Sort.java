@@ -32,21 +32,19 @@ public class Sort {
     }
 
 //    --------------------------------------------------------
-    public int[] insertionSort(int [] array){
+    public int[] insertionSort(int [] array)g{
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
 
         for(int i = 1; i<list.length; i ++){
-            for(int j = i-1; j<i;j--){
-                if(list[j]>list[i]){
-                    int temp = list[j];
-                    list[j] = list[i];
-                    list[i]= temp;
-
-                }
+            int temp = list[i];
+            int j = i-1;
+            while(j>=0 && list[j]>temp) {
+                list[j+1] = list[j];
+                j--;
             }
-
+            list[j+1] = temp;
         }
 
         final long endTime = System.currentTimeMillis();
