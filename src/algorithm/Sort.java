@@ -80,46 +80,69 @@ public class Sort {
     public int [] mergeSort(int [] array){
         int [] list = array;
         //implement here
-        
-        if(list.length>1){
-            int mid = list.length/2;
-            int [] left =new int[mid];
-            int [] right = new int[list.length-mid];
 
-            for(int i = 0; i<mid; i++){
-                left[i]= list[i];
-            };
 
-            for(int i = mid+1; i<list.length; i++){
-                right [i-mid] = list[i];
+
+        return list;
+    }
+
+//--------------------------------------------------------------
+
+    public int[] quickSort(int[] array) {
+        int[] list = array;
+        // implement here
+
+        qs(list, 0, list.length - 1);
+
+        return list;
+    }
+
+    static void qs(int[] ar, int l, int r) {
+
+        if (l >= r) {
+            return;
+        } else {
+//			int pivot = ar[(l+r)/2];
+            int pivot = ar[r];
+            int mid = partition(ar, l, r, pivot);
+            qs(ar, l, mid - 1);
+            qs(ar, mid, r);
+        }
+    }
+
+    static int partition(int[] a, int left, int right, int pivot) {
+        int lft = left;
+        int rft = right-1;
+
+        while (lft <= rft) {
+            while (a[lft] < pivot) {
+                lft++;
             }
 
-            mergeSort(left);
-            mergeSort(right);
-
-            for(int i = 0; i<left.length; i++){
-                for(int j = 0; j<right.length; j++){
-                    while(left[i]>right[j]){
-                        int temp = left[i];
-                        left[i] = right[j];
-                        right[j] = temp;
-                    }
-                }
+            while (rft>= 0 && a[rft] > pivot) {
+                rft--;
             }
+            if (lft <= rft) {
+                int temp = a[lft];
+                a[lft] = a[rft];
+                a[rft] = temp;
 
+                lft++;
+                rft--;
+            }
         }
 
-        return list;
-    }
-    
 
-    public int [] quickSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-
-        return list;
+        int temp = a[lft];
+        a[lft] = a[right];
+        a[right] = temp;
+        return lft;
     }
+
+
+
+//------------------------------------------
+
     
     public int [] heapSort(int [] array){
         int [] list = array;
