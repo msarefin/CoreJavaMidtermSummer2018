@@ -19,10 +19,10 @@ public class Numbers {
 	 * At the end. After running all the sorting algo, come to a conclusion which one is suitable on given data set.
 	 *
 	 */
-
+static int numrange =1000000;
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[1000000];
+		int [] num = new int[numrange];
 		storeRandomNumbers(num);
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
@@ -58,7 +58,7 @@ public class Numbers {
 	public static void storeRandomNumbers(int [] num){
 		Random rand = new Random();
 		for(int i=0; i<num.length; i++){
-			num[i] = rand.nextInt(1000000);
+			num[i] = rand.nextInt(numrange);
 		}
 	}
 

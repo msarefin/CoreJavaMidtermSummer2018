@@ -1,5 +1,7 @@
 package algorithm;
 
+import java.util.ArrayList;
+
 public class Sort {
 
     long executionTime = 0;
@@ -32,7 +34,7 @@ public class Sort {
     }
 
 //    --------------------------------------------------------
-    public int[] insertionSort(int [] array)g{
+    public int[] insertionSort(int [] array){
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
@@ -59,29 +61,79 @@ public class Sort {
         int [] list = array;
         //implement here
 
-        int temp = 0;
-
-        for(int i = 0; i<list.length; i++){
-            for(int j = 0; j<list.length-1; j++){
-                if(list[j]>list[j+1]){
-                    temp= list[j];
+        for(int i =0; i<list.length-1; i++) {
+            for(int j = 0; j<list.length-1; j++) {
+                while(list[j]>list[j+1]) {
+                    int temp = list[j];
                     list[j] = list[j+1];
                     list[j+1] = temp;
                 }
             }
+
         }
         
         return list;
     }
     
 //      ----------------------------------------------------------------
+    static int [] temp;
+
     public int [] mergeSort(int [] array){
         int [] list = array;
         //implement here
 
-
+        temp = new int[list.length];
+        ms(list, 0, list.length-1);
 
         return list;
+    }
+
+    static void ms(int[] ar, int s, int e){
+
+        if(s!=e){
+
+            int m = s+(e-s)/2;
+            ms(ar, s, m);
+            ms(ar, m+1, e);
+
+            sort(temp, ar, s, m, e);
+        }
+    }
+
+    static void sort(int [] t, int [] a, int s, int m , int  l ) {
+        for( int i =0 ; i<=l; i++) {
+            t[i] = a[i];
+        }
+
+
+
+        int p1 = s;
+        int p2 = m + 1;
+        int ic = s;
+
+        while (p1 <= m && p2 <= l) {
+            if (t[p1] >= t[p2]) {
+                a[ic] = t[p2];
+                p2++;
+            } else {
+                a[ic] = t[p1];
+                p1++;
+
+            }
+
+            ic++;
+        }
+
+        while (p1 <= m) {
+            a[ic] = t[p1];
+            ic++;
+            p1++;
+
+        }
+
+
+
+
     }
 
 //--------------------------------------------------------------
@@ -146,26 +198,112 @@ public class Sort {
         int [] list = array;
         //implement here
         
-        
+        int n = list.length;
+
+        for (int i = n/2-1; i>=0; i--){
+
+            heapify(list, n, i);
+        }
+
+        for(int i = n-1; i>=0; i--) {
+            int temp = list[0];
+            list[0]= list[i];
+            list[i] = temp;
+
+            heapify(list, i, 0);
+        }
 
         return list;
     }
 
+    static void heapify(int [] arr, int n, int i) {
+        int root = i;
+        int l = 2*i+1;
+        int r = 2*i+2;
 
+        if(l < n && arr[l]>arr[root]) {
+            root = l;
+        }
+
+        if(r < n && arr[r] > arr[root]) {
+            root = r;
+        }
+        if(root != i) {
+            int temp = arr[i];
+            arr[i] = arr[root];
+            arr[root] = temp;
+
+            heapify(arr, n, root);
+        }
+    }
+
+//    ---------------------------------------------------
     public int [] bucketSort(int [] array){
         int [] list = array;
         //implement here
         
-        
+        int size = list.length;
+
+        //Creating the Bucket
+        buckets [] b = new buckets[10];
+        for(int i = 0; i<b.length;i++){
+            b[i] = new buckets();
+        }
+
+        for (int n: list){
+            int bi = (n*10)/(Numbers.numrange+1);
+            b[bi].bkt.add(n);
+        }
+
+
+        int index = 0;
+        for (buckets n : b) {
+            BIS(n.bkt);
+
+            for(int num: n.bkt) {
+                list[index] = num;
+                index++;
+            }
+        }
+
 
         return list;
     }
-    
+
+
+    public static void BIS(ArrayList<Integer> array) {
+
+        for (int i = 1; i < array.size(); i++) {
+            int temp = array.get(i);
+            int j = i - 1;
+            while (j >= 0 && array.get(j) > temp) {
+                array.set(j + 1, array.get(j));
+                j--;
+            }
+            array.set(j + 1, temp);
+        }
+
+    }
+
+
+//    -----------------------------------------
     public int [] shellSort(int [] array){
         int [] list = array;
         //implement here
-        
-        
+
+        int n = list.length;
+
+        for (int g = n / 2; g > 0; g /= 2) {
+            for (int i = g; i < n; i++) {
+                int temp = list[i];
+
+                int j;
+                for(j=i; j>=g && list[j-g]>temp;j-=g ) {
+                    list[j] = list[j-g];
+                }
+                list[j] = temp;
+            }
+        }
 
         return list;
     }
@@ -175,4 +313,11 @@ public class Sort {
             System.out.println(array[i]);
         }
     }
+}
+
+
+// bucket Helper class
+
+class buckets{
+    ArrayList<Integer> bkt = new ArrayList<Integer>();
 }
