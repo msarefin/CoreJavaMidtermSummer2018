@@ -65,7 +65,7 @@ public class Anagram {
 
     }
 
-    static void printme(char[] a) {
+   private static void printme(char[] a) {
         for (char m : a) {
             System.out.print(m + " ");
         }
@@ -73,7 +73,7 @@ public class Anagram {
         System.out.println();
     }
 
-    static void sorter(char[] a, int size) {
+   private static void sorter(char[] a, int size) {
         for (int i = 1; i < size; i++) {
             char temp = a[i];
             int j = i - 1;

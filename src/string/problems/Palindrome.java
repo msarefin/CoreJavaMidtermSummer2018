@@ -7,12 +7,15 @@ public class Palindrome {
           Palindrome. So write java code to check if a given String is Palindrome or not.
          */
 
-        Palindrome("Malayalam");
+        IsItAPalindrome("malayalam");
 
     }
 
+    static void IsItAPalindrome(String word){
+        Palindrome(word);
+    }
 
-    static void Palindrome(String word){
+    private static void Palindrome(String word){
         String output = reverse(word);
 
         if(word.equalsIgnoreCase(output)){
@@ -22,7 +25,7 @@ public class Palindrome {
         }
     }
 
-    static String reverse(String w){
+   private static String reverse(String w){
 
         char [] s = new char[w.length()];
 

@@ -18,16 +18,25 @@ public class DuplicateWord {
 
         String st = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
 
-        for (String m : dublicates(st)) {
-            System.out.println(m);
-        }
+        DuplicateWordsInSentence(st);
+        AvaragelengthOfWordInSentence(st);
 
-        System.out.println("The Avarage Character length  for all words is : "+ AvarageCharacterLength(st));
+
+
 
     }
 
+    static void DuplicateWordsInSentence(String sentence){
+        for (String m : dublicates(sentence)) {
+            System.out.println(m);
+        }
+    }
 
-    static HashSet<String> dublicates(String st) {
+    static void AvaragelengthOfWordInSentence(String Sentence){
+        System.out.println("The Avarage Character length  for all words is : " + AvarageCharacterLength(Sentence));
+    }
+
+    private static HashSet<String> dublicates(String st) {
 
         String[] word = st.split(" ");
         n = word.length;
@@ -57,16 +66,16 @@ public class DuplicateWord {
 
     }
 
-    static int AvarageCharacterLength(String st) {
+    private static int AvarageCharacterLength(String st) {
 
         String[] word = st.split(" ");
         n = word.length;
 
         int sum = 0;
-        for (int i = 0; i<n;i++){
-            sum = sum+word[i].length();
+        for (int i = 0; i < n; i++) {
+            sum = sum + word[i].length();
         }
-int avg = sum/n;
+        int avg = sum / n;
         return avg;
 
     }
