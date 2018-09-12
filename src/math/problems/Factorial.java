@@ -13,6 +13,28 @@ public class Factorial {
          */
 
 
+        nFactorialOf(100);
 
+    }
+
+    static void nFactorialOf( int n){
+
+        System.out.println(nFactorial(n));
+    }
+
+    private static long nFactorial(int n){
+        long result = 1;
+        if(n<0){
+            System.out.println("You must enter number gretater than zero");
+        }else if (n==0){
+            System.out.println(result);
+        }else{
+            for(int i = n; i>0; i--){
+                result = result*i;
+            }
+        }
+
+
+        return result;
     }
 }

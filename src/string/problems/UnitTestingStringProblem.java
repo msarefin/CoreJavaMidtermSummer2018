@@ -11,32 +11,32 @@ public class UnitTestingStringProblem {
         try{
             Anagram.AnagramChecker(word1,word2);
         }catch (Exception e){
-            System.out.println("Failed");
+            System.out.println("Anagram Failed");
         }
 
 
         try{
             DetermineLargestWord.LargestWord(sentence);
         }catch (Exception e){
-            System.out.println("Failed");
+            System.out.println("DetermineLargestWord Failed");
         }
 
         try{
             DuplicateWord.DuplicateWordsInSentence(sentence);
         }catch (Exception e){
-            System.out.println("Failed");
+            System.out.println("DuplicateWord Failed");
         }
 
         try{
             Palindrome.IsItAPalindrome(word3);
         }catch (Exception e){
-            System.out.println("Failed");
+            System.out.println("Palindrome Failed");
         }
 
         try{
             Permutation.permutations(word3);
         }catch (Exception e){
-            System.out.println("Failed");
+            System.out.println("Permutation Failed");
         }
 
     }
