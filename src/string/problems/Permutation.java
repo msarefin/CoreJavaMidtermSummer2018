@@ -13,4 +13,17 @@ public class Permutation {
          *
          */
     }
+
+    static void permutation(String word){
+
+        int size = word.length();
+
+        if(size==1){
+            return;
+        }else{
+
+            permute();
+        }
+    }
+
 }
