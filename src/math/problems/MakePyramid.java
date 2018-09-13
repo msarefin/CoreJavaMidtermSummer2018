@@ -14,6 +14,25 @@ public class MakePyramid {
 
         */
 
+        pyramid("*", 6);
 
         }
+
+        static void pyramid(String c, int height){
+
+            for(int i = 0; i<height+1; i++){
+                for(int j = 0; j<height-i; j++){
+                    System.out.print(" ");
+                }
+
+                for(int j = 0; j<i; j++){
+                    System.out.print(c+" ");
+                }
+                System.out.println();
+            }
+
+
+
+        }
+
   }
