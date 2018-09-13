@@ -12,23 +12,24 @@ public class FindLowestDifference {
         int[] array1 = {30, 12, 5, 9, 2, 20, 33, 1};
         int[] array2 = {18, 25, 41, 47, 17, 36, 14, 19};
 
-        System.out.println("Array1");
-        Implement(LowestDifferenceBetweenArrayElements(array1), array1);
-        System.out.println("Array2");
-        Implement(LowestDifferenceBetweenArrayElements(array2), array2);
+        System.out.print("Array 1 :");
+        Implement(array1);
+        System.out.println();
+        System.out.print("Array 2 :");
+        Implement(array2);
     }
 
-    static void Implement(int l, int[] ar) {
+    static void Implement(int[] ar) {
 
 
-        for (String msg : LowestDifference(l, ar)) {
+        for (String msg : LowestDifference(ar)) {
             System.out.println(msg);
         }
     }
 
-    private static ArrayList<String> LowestDifference(int l, int[] ar) {
+    private static ArrayList<String> LowestDifference(int[] ar) {
         ArrayList<String> output = new ArrayList<>();
-
+        int l = LowestDifferenceBetweenArrayElements(ar);
         for (int i = 0; i < ar.length; i++) {
             for (int j = 0; j < ar.length; j++) {
                 if (Absoluteint(ar[i] - ar[j]) == l) {
