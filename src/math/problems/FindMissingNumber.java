@@ -54,15 +54,7 @@ public class FindMissingNumber {
         System.out.println();
     }
 
-    static int[] DetectIncrement(int [] ar){
-        int[] seq = new int[ar.length-1];
 
-        for(int i = 0; i<seq.length; i++){
-            seq[i] = ar[i+1]-ar[i];
-        }
-
-        return seq;
-    }
 
     static int [] InsertionSort(int []ar ){
 
