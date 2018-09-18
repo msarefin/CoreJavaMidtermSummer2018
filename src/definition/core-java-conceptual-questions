@@ -1,23 +1,55 @@
 Please answer the below core-java Questions:
 
 What is programing language?
-A.
+A. A programming language is a formal language that is used specify a set of instructions that helps produce various outputs. Programming language can be used to produce various programs that implements several lagirthms.
 What jdk contains or composed of and define each components?
+A. JDK stands for Java Development kit. JDK is composed of the following
+	- javac: reads class and interface definitions in the .java file and convert it to .class file which is the byte code. 
+	- javap: reveals the structure of the code from the .class file without revealing the inner working of the methods.
+	- javadoc: enables programmers to convert comments and annotations into HTML  file for documentation
+	- JRE(Java Runtime Environment) consists of the following:
+		>class Loader: loads the class files into JVM
+		>JVM(Java Virtual Machine)consists of the following:
+			. Bytecode verifier: points to the memory where the class file is loaded
+			. Garbage Collector: releases the object form memory that is not in use
+			. Security Manager: imposes security restrictions
+			. Excution Engine / JIT(Just In Time compiler): converts byte code to machine language
 What is IDE?
+A .IDE stands for integrated development environment. They are applications used by developers to develop programs in various languages.
 What are the IDEs available in the market to support java?
+A. NetBeans, Eclipse, Intellij, Visual studio Code(needs plugins) 
 Explain the entire java life cycle.
+A. Programmers produce the .java files using using IDE, javac compiles the files and converts it to byte code which is a .class file. The JRE then loads the .class files on to jam with the help of class loader. In the JVM the byte code verifier points to the memory when the class file is loaded. The security manager imposes the necessary restrictions. The JIT converts the .class file to machine language that is readable by the hardware. During this process if there are objects that no longer in use they are discarded from the memory by the garbage collector. 
 what is class?
+A. Class is defined as a blueprint that defines an object. 
 What is object?
+A. An object is an instance of a class whose features are defined by the class. 
 What is the entry point of an application?
-Why main is static?
+A. In the java the main method is the entry point of the application which is written as: public static void main(String[] args){}
+Why main is static? 
+A. Main method is static so that JVM can access it without needing to creating an instance of the class. 
 Which class is the superclass of all classes?
+A. The Object class which is in the java.lang package is the super class to all classes. 
 What is difference between path and classpath variables?
+A. Path is an environment variable which is used by the operating system to find the executables.  Classpath is an environment variable which is used by the java compiler to find the path to the classes and jar files.  
 What is the difference between an Interface and Abstract class?
+A. Interface is a Prue Abstract class which contains only abstract methods. Inteface cannot contain concrete methods. Abstract classes can extends other abstract classes. Concrete class can implement as many interfaces.  The Abstract class is a class that contains at least one abstract methods. Abstract class can contain concrete method as well. Concrete class and other abstract classes can only extends a single abstract class; single line multi-level inheritance rule applies here.
 Can you make an Object from an Interface and Abstract class ? if not how do you use it ?
+A. No. You can only implement Interfaces classes into other classes or extends Abstract classes into other classes.
 what is Access Specifier?
-What is OOP ? Define each feature of java OOP.
+A. Access specifiers defines the areas from where the the variables and objects can be accessed. Public- accessible from all class across all packages in the project. Default - accessible only by classes within the package. Protected- accessible only by classes within the package including sub-classes. Private- accessible only from the class where it is declared.    
+What is OOP ? Define each feature of java OOP. 
+A. OOP stands for Object Oriented Programming which is organized around objects rather than action and data rather than logic. OOP features include the following:
+	- Abstraction: created using abstract class and Interfaces which contain abstract methods that are only declared by not defined
+	- Encapsulation: This feature enables data hiding. This achieved using private variables, methods and classes. 
+	- Inheritance: Enabled as class to inherit the features of another class using extends keyword. 
+	- Polymorphism: methods can have multiple forms. There two types of polymorphism:
+		> Methods overriding: can be done in the subclass. The same methods with the same number and type of parameters, but the inner working of the methods are different.
+		> Methods Overloading: can be done within the same class. methods with the same name can accept different parameters
 What is Java Package and which package is imported by default?
+A. A java package is a namespace that organizes a set of related classes and interfaces. The java.lang package is the one that is imported by default. 
 What is API? Name list of API that you have used so far.
+A. API stands for Application Program Interface which is a list of all classes that are part of the java development kit. Commonly used API include; IO, math, sql,
 Does java support multiple inheritance, explain why or why not?
 What is method overloading and when it happens?
 Explain exceptions in java and how to handle it.
