@@ -23,6 +23,7 @@ public class PrimeNumber {
         long startTime = System.nanoTime();
 
         PrimeInRange(n);
+//        PrimeNumberInRange(n);
 
         long endTime = System.nanoTime();
 
@@ -33,11 +34,11 @@ public class PrimeNumber {
 
 
         if (seconds < 1) {
-            System.out.println(TimeElapsed+" ns");
+            System.out.println(TimeElapsed + " ns");
         } else if (seconds > 60) {
-            System.out.println(minutes+" min ,"+ (seconds-(minutes*60))+" sec");
-        }else{
-            System.out.println(seconds+" sec");
+            System.out.println(minutes + " min ," + (seconds - (minutes * 60)) + " sec");
+        } else {
+            System.out.println(seconds + " sec");
         }
 
     }
@@ -48,62 +49,95 @@ public class PrimeNumber {
 
         long counter = 0;
         for (int i = 1; i <= n; i++) {
-            if (PrimeChecker1(i) == true) {
-                System.out.print(++counter+" ");
+            while (i > 0 && PrimeChecker3(i)) {
+                System.out.print(++counter + " ");
                 System.out.println(i);
+                break;
             }
         }
     }
 
 
-    static boolean PrimeChecker1(double n) {
 
-        for (int i = 2; i <= n; i++) {
-            if (n % i == 0) {
-                return false;
+//    ---------------------------------------------------
+
+    static boolean PrimeChecker1(int n) {
+
+        boolean b = true;
+
+        if (n > 1) {
+
+
+            for (int i = 2; i < n; i++) {
+                if (n < 2) {
+                    b = false;
+                    return b;
+                } else if (n % i == 0) {
+                    b = false;
+                    return b;
+                } else {
+                    b = true;
+                }
             }
+        } else {
+            b = false;
         }
+        return b;
 
-        return true;
     }
 
     static boolean PrimeChecker2(double n) {
 
-        for (int i = 2; 2*i < n; i++) {
-            if (n % i == 0) {
-                return false;
+        if (n > 1) {
+            for (int i = 2; 2 * i <= n; i++) {
+                if (n % i == 0) {
+                    return false;
+                }
             }
-        }
-
-        return true;
-    }
-
-    static boolean PrimeChecker3(double n){
-        if(n%2==0){
+            return true;
+        } else {
             return false;
         }
 
-        for(int i = 3; i*i<n; i+=2){
-            if(n%i==0){
+
+    }
+
+    static boolean PrimeChecker3(int n) {
+
+        if (n > 1) {
+            if (n == 2) {
+                return true;
+            } else if (n % 2 == 0) {
                 return false;
+            } else {
+                for (int i = 3; i * i <= n; i += 2) {
+                    if (n % i == 0) {
+                        return false;
+                    }
+                }
             }
+            return true;
+
+        } else {
+            return false;
         }
-        return true;
+
 
     }
 
 //    ---------------------------------------------
 
-    static boolean [] Sieve(int n){
-        boolean [] primes = new boolean[n];
+    static boolean[] Sieve(int n) {
+        boolean[] primes = new boolean[n];
 
-        Arrays.fill(primes,true);
-        primes[0] =primes[1]=false;
+        Arrays.fill(primes, true);
+        primes[0] = false;
+        primes[1] = false;
 
-        for(int i = 2; i<primes.length; i++){
-            if(primes[i]){
-                for(int j = 2; i*j<primes.length;j++ ){
-                    primes[i*j] = false;
+        for (int i = 2; i < primes.length; i++) {
+            if (primes[i]) {
+                for (int j = 2; i * j < primes.length; j++) {
+                    primes[i * j] = false;
                 }
             }
         }
@@ -111,10 +145,19 @@ public class PrimeNumber {
         return primes;
     }
 
-    static boolean[] PrimeChecker(int n){
-        return Sieve(n);
-    }
+    static void PrimeNumberInRange(int n) {
+//        boolean[] b = Sieve(n);
 
+        for(int i = 0; i<=Sieve(n).length; i++){
+            if(Sieve(n)[i]==true){
+                System.out.println(i);
+            }else{
+                ;
+            }
+        }
+
+
+    }
 
 }
 
